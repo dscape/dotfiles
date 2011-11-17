@@ -1,6 +1,6 @@
 # node.js
 # npm install semver jsontool -g
-alias node2="nave ls-remote | xargs semver -r $(cat package.json | json engines.node)"
+alias vnode='ver=`nave ls-remote | xargs semver -r $(cat package.json | json engines.node)`; nave use ${ver:-latest}'
 
 # Easier navigation: .., ..., ~ and -
 alias ..="cd .."
