@@ -58,6 +58,7 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 # Shortcuts
 alias d="cd ~/Dropbox"
 alias p="cd ~/Desktop/dev"
+alias n="cd ~/Desktop/dev/nodejitsu"
 alias g="git"
 alias v="vim"
 alias m="mate ."
