@@ -40,4 +40,4 @@ function parse_git_branch() {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-PS1="\[${BOLD}${MAGENTA}\]\u \[$ORANGE\]\w\[$WHITE\] \$([[ -n \$(git branch 2> /dev/null) ]] && echo \"♯\")\[$PURPLE\]\$(parse_git_branch)\[$GREEN\]\$([[ -e package.json ]] && echo \" ⬢ \")\[$GREEN\]\$(if [ -e package.json ]; then  node --version | sed 's/v//'; fi)\[$WHITE\]\n\$ \[$RESET\]"
+PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]\$(dirname \$(pwd) | sed 's#'$HOME'#~#')\$(if [[ \$(dirname \$(pwd)) != '/' ]]; then echo '/'; fi)\[$GREEN\]\$(if [[ \$(pwd) != '/' ]]; then basename \$(pwd); fi)\[$WHITE\] \$([[ -n \$(git branch 2> /dev/null) ]] && echo \"♯\")\[$PURPLE\]\$(parse_git_branch)\[$ORANGE\]\$([[ -e package.json ]] && echo \" ⬢ \")\[$ORANGE\]\$(if [ -e package.json ]; then  node --version | sed 's/v//'; fi)\[$WHITE\]\n\$ \[$RESET\]"
